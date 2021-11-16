@@ -217,4 +217,13 @@ your tensor code.
    to the README. Also record the time per epoch reported by the
    trainer. (As a reference, our parallel implementation gave a 10x speedup).
    On a standard Colab GPU setup, aim for you CPU to get below 2 seconds per epoch and
-   GPU to be below 1 second per epoch. (With some cleverness you can do much better.)
+   GPU to around 2 seconds per epoch. (With some cleverness you can do much better.)
+   
+   While you might think that the code should be much faster, you have to take into 
+   account that the benefits of a CUDA/GPU implementation start to show as our matrix
+   sizes increase. For this module, the matrix sizes were relatively small.
+   
+   I encourage you to see the difference in time between executing a MatMul operation
+   using a parallel CPU implementation and a parallel GPU implementation for different
+   matrix sizes. The expectation is that, as your matrix size increases, the GPU
+   implementation starts to outperform the CPU one.
